@@ -1,0 +1,125 @@
+@media (max-width: 1080px) {
+  .team-layout {
+    grid-template-columns: minmax(300px, .7fr) minmax(0, 1.3fr);
+  }
+
+  .team-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team-flow::before {
+    display: none;
+  }
+
+  .team-step {
+    min-height: 116px;
+  }
+
+  .team-step:nth-child(2) {
+    border-right: 0;
+  }
+
+  .team-step:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .team-step span {
+    margin-bottom: 16px;
+  }
+
+  .team-insights {
+    grid-template-columns: 1fr;
+  }
+
+  .team-insight {
+    min-height: 260px;
+  }
+
+  .team-apprenticeship {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .team-apprenticeship > p {
+    grid-column: 2;
+  }
+
+  .team-apprenticeship .button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 780px) {
+  .team-header,
+  .team-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .team-header {
+    gap: 20px;
+  }
+
+  .team-visual {
+    min-height: 440px;
+  }
+
+  .team-apprenticeship {
+    grid-template-columns: auto 1fr;
+  }
+
+  .team-apprenticeship > p {
+    grid-column: 1 / -1;
+  }
+
+  .team-apprenticeship .button {
+    grid-column: 1 / -1;
+    grid-row: auto;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 520px) {
+  .team-visual {
+    min-height: 390px;
+  }
+
+  .team-visual__caption {
+    right: 22px;
+    bottom: 24px;
+    left: 22px;
+  }
+
+  .team-visual__inset {
+    top: 14px;
+    right: 14px;
+    width: 46%;
+  }
+
+  .team-step {
+    min-height: 108px;
+    padding: 20px 16px;
+  }
+
+  .team-insight {
+    min-height: 250px;
+    padding: 26px;
+  }
+
+  .team-apprenticeship {
+    padding: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-roles__track {
+    animation: none;
+  }
+
+  .team-flow::before {
+    transform: scaleX(1);
+  }
+
+  .team-visual__main {
+    transition: none;
+  }
+}

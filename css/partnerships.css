@@ -1,0 +1,11 @@
+.customers {
+  padding-top: clamp(14px, 1.25vw, 20px);
+}
+
+.customers .section-heading > p {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+}

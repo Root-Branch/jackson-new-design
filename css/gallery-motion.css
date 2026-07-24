@@ -1,0 +1,130 @@
+.work-browser {
+  min-width: 0;
+  padding-top: 12px;
+  overflow: hidden;
+}
+
+.work-browser__toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  min-height: 38px;
+  margin-bottom: 8px;
+}
+
+.work-browser__toolbar > div:first-child {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+}
+
+.work-browser__toolbar strong {
+  color: var(--white);
+  font-family: var(--display);
+  font-size: .9rem;
+}
+
+.work-browser__toolbar span {
+  color: rgba(255, 255, 255, .42);
+  font-size: .72rem;
+}
+
+.work-browser__controls {
+  display: flex;
+  gap: 8px;
+}
+
+.work-browser__controls button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  color: var(--white);
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .16);
+  border-radius: 50%;
+  cursor: pointer;
+  place-items: center;
+  transition: color .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.work-browser__controls button:hover,
+.work-browser__controls button:focus-visible {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.work-browser__controls button:disabled {
+  opacity: .25;
+  cursor: default;
+}
+
+.work-browser__controls svg {
+  width: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.work-filmstrip {
+  display: flex;
+  height: 92px;
+  gap: 10px;
+  align-items: stretch;
+  padding: 0 1px 4px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.work-filmstrip::-webkit-scrollbar {
+  display: none;
+}
+
+.work-thumb {
+  position: relative;
+  width: 150px;
+  height: 88px;
+  flex: 0 0 150px;
+  padding: 0;
+  overflow: hidden;
+  background: #252927;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: .45;
+  scroll-snap-align: center;
+  transition: opacity .3s ease, border-color .3s ease;
+}
+
+.work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.8);
+  transition: filter .4s ease, transform .55s ease;
+}
+
+.work-thumb:hover,
+.work-thumb:focus-visible,
+.work-thumb.is-active {
+  opacity: 1;
+  border-color: var(--red);
+}
+
+.work-thumb:hover img,
+.work-thumb:focus-visible img,
+.work-thumb.is-active img {
+  filter: grayscale(0);
+  transform: scale(1.06);
+}
+
+@keyframes work-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
