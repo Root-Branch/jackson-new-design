@@ -4,7 +4,7 @@
   color: var(--white);
   background:
     linear-gradient(110deg, rgba(17, 21, 20, .97), rgba(17, 21, 20, .72)),
-    url("../assets/images/original/building-site.jpg") center / cover;
+    url("../assets/images/original/building-site.webp") center / cover;
   border-radius: var(--radius-lg);
 }
 
