@@ -49,6 +49,15 @@ if (workShowcase) {
   };
 
   thumbs.forEach((thumb, index) => {
+    const preload = document.createElement("link");
+    preload.rel = "preload";
+    preload.as = "image";
+    preload.href = thumb.dataset.src;
+    preload.imageSrcset = thumb.dataset.srcset;
+    preload.imageSizes = featureImage.sizes;
+    preload.fetchPriority = "low";
+    document.head.append(preload);
+
     thumb.addEventListener("click", () => {
       showExample(index, false);
       startAutoPlay();
