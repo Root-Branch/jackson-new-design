@@ -1,0 +1,106 @@
+.service-panel__toggle {
+  display: none;
+}
+
+.touch-cards .service-deck {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  min-height: 0;
+}
+
+.touch-cards .service-deck .service-panel {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: 24px;
+  transition: none;
+}
+
+.touch-cards .service-deck .service-panel .service-panel__summary {
+  width: 100%;
+  min-width: 0;
+  padding-bottom: 0;
+}
+
+.touch-cards .service-deck .service-panel .service-panel__image {
+  width: calc(100% + 48px);
+  height: auto;
+  max-height: 260px;
+  margin: 16px -24px 0;
+  object-fit: contain;
+  opacity: 1;
+  transition: none;
+}
+
+.touch-cards .service-panel__hint {
+  display: none;
+}
+
+.touch-cards .about-stories .about-story .service-panel__image {
+  max-height: none;
+}
+
+.touch-cards .service-panel__toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 0;
+  margin-top: 16px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.touch-cards .service-panel__toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.touch-cards .service-panel__toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.touch-cards .service-deck .service-panel .service-panel__details {
+  position: static;
+  width: auto;
+  max-height: none;
+  padding: 20px 0 0;
+  margin: 8px 0 0;
+  overflow: visible;
+  opacity: 1;
+  border: 0;
+  border-top: 1px solid var(--line);
+  transform: none;
+  visibility: visible;
+  transition: none;
+}
+
+.touch-cards .service-deck .service-panel:is(.service-panel--red, .service-panel--dark) .service-panel__details {
+  border-top-color: rgba(255, 255, 255, .24);
+}
+
+.touch-cards #services .service-panel__details {
+  overflow: visible;
+}
+
+.touch-cards .service-panel__details[hidden] {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .touch-cards .service-deck {
+    grid-template-columns: 1fr;
+  }
+}

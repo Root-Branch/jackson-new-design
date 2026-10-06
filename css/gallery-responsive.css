@@ -15,13 +15,9 @@
   }
 
   .work-stage {
-    grid-template-columns: minmax(0, 1fr) 260px;
+    grid-template-columns: minmax(0, 1fr);
     height: 520px;
     min-height: 520px;
-  }
-
-  .work-console {
-    padding: 28px;
   }
 
   .work-browser {
@@ -46,16 +42,6 @@
     height: 360px;
   }
 
-  .work-console {
-    min-height: 300px;
-    border-top: 1px solid rgba(255, 255, 255, .1);
-    border-left: 0;
-  }
-
-  .work-console__number {
-    margin-top: 52px;
-  }
-
   .work-feature__open {
     right: 16px;
     bottom: 16px;
@@ -72,10 +58,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .work-progress span.is-running {
-    animation: none;
-  }
-
   .work-feature img,
   .work-thumb,
   .work-thumb img {

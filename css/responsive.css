@@ -124,11 +124,7 @@
   }
 
   .site-footer__top {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .site-footer__top p {
-    display: none;
+    gap: 20px;
   }
 }
 
@@ -287,6 +283,19 @@
     min-height: 320px;
   }
 
+  .map-office-card {
+    top: 8px;
+    left: 8px;
+    width: min(180px, calc(100% - 16px));
+    padding: 10px;
+    font-size: .62rem;
+    line-height: 1.4;
+  }
+
+  .map-office-card p {
+    margin: 6px 0;
+  }
+
   .site-footer {
     margin-top: 0;
   }
@@ -295,8 +304,12 @@
     grid-template-columns: 1fr;
   }
 
+  .brand--footer {
+    grid-column: auto;
+  }
+
   .footer-links {
-    justify-items: start;
+    justify-items: center;
   }
 
   .site-footer__bottom {

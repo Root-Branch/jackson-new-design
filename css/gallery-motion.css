@@ -122,9 +122,3 @@
   filter: grayscale(0);
   transform: scale(1.06);
 }
-
-@keyframes work-progress {
-  to {
-    transform: scaleX(1);
-  }
-}

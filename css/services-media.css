@@ -57,3 +57,21 @@
     height: 125px;
   }
 }
+
+#services .service-panel__marks {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+#services .service-panel__marks img {
+  width: 100%;
+  max-width: 128px;
+  height: 42px;
+  padding: 4px;
+  justify-self: center;
+}
+
+#services .service-panel__marks .service-panel__mark--cqms { object-fit: cover; }
+
+#services .service-panel--red .service-panel__image { object-fit: contain; mix-blend-mode: normal; }
+#services .service-panel__details { overflow-y: auto; }
