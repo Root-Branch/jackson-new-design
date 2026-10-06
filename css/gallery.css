@@ -1,6 +1,6 @@
 .work-showcase {
   position: relative;
-  padding-bottom: 24px;
+  padding-block: clamp(54px, 6vw, 82px);
   overflow: hidden;
   color: var(--white);
   background:
@@ -21,7 +21,7 @@
 }
 
 .work-showcase__header {
-  padding-block: 28px 18px;
+  padding-bottom: 18px;
 }
 
 .work-stage {

@@ -1,10 +1,6 @@
 const header = document.querySelector("[data-header]");
 const menuButton = document.querySelector("[data-menu-toggle]");
 const menu = document.querySelector("[data-menu]");
-const lightbox = document.querySelector("[data-lightbox]");
-const lightboxImage = document.querySelector("[data-lightbox-image]");
-const lightboxCaption = document.querySelector("[data-lightbox-caption]");
-const lightboxClose = document.querySelector("[data-lightbox-close]");
 const navLinks = [...(menu?.querySelectorAll('a[href^="#"]') || [])];
 const navSections = navLinks
   .map((link) => ({
@@ -87,18 +83,3 @@ document.querySelectorAll(".reveal").forEach((element) => {
   revealObserver.observe(element);
 });
 
-document.querySelectorAll("[data-gallery-item]").forEach((item) => {
-  item.addEventListener("click", () => {
-    if (!lightbox || !lightboxImage || !lightboxCaption) return;
-    lightboxImage.src = item.dataset.src || "";
-    lightboxImage.alt = item.dataset.alt || "";
-    lightboxCaption.textContent = item.dataset.alt || "";
-    lightbox.showModal();
-  });
-});
-
-lightboxClose?.addEventListener("click", () => lightbox?.close());
-
-lightbox?.addEventListener("click", (event) => {
-  if (event.target === lightbox) lightbox.close();
-});

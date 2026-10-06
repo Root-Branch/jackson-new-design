@@ -1,66 +1,185 @@
 @media (min-width: 981px) {
+  /* Fits the viewport, plus the section padding so the feature image keeps its size. */
   .work-showcase {
+    --work-padding-extra: calc(2 * clamp(54px, 6vw, 82px) - 44px);
     display: grid;
-    height: calc(100svh - 64px);
+    height: calc(100svh - 64px + var(--work-padding-extra));
     min-height: 0;
-    max-height: 900px;
-    padding-bottom: 16px;
+    max-height: calc(900px + var(--work-padding-extra));
     grid-template-rows: auto minmax(0, 1fr) 150px;
   }
 }
 
-@media (max-width: 980px) {
-  .work-showcase__header {
-    padding-block: 24px 16px;
-  }
+/* Phones, tablets and touch screens: swipeable carousel (toggled by js/gallery.js) */
 
-  .work-stage {
-    grid-template-columns: minmax(0, 1fr);
-    height: 520px;
-    min-height: 520px;
-  }
+.work-carousel {
+  display: none;
+}
 
-  .work-browser {
-    padding-bottom: 20px;
-  }
+.work-showcase.is-touch {
+  display: block;
+  height: auto;
+  max-height: none;
+}
+
+.work-showcase.is-touch .work-stage,
+.work-showcase.is-touch .work-browser {
+  display: none;
+}
+
+.work-showcase.is-touch .work-carousel {
+  display: block;
+}
+
+.work-showcase.is-touch .work-showcase__header {
+  padding-bottom: 16px;
+}
+
+.work-carousel__track {
+  --work-slide-height: clamp(340px, 52vw, 500px);
+  --work-gutter: max(14px, calc((100% - var(--shell)) / 2));
+  position: relative;
+  display: flex;
+  height: var(--work-slide-height);
+  gap: 12px;
+  padding-inline: var(--work-gutter);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--work-gutter);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.work-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.work-slide {
+  position: relative;
+  height: 100%;
+  max-width: 82%;
+  flex: 0 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background: #191d1b;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 20px;
+  cursor: zoom-in;
+  scroll-snap-align: start;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.work-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(.82) contrast(1.03);
+  transition: filter .4s ease;
+}
+
+.work-slide.is-active img {
+  filter: saturate(1) contrast(1.04);
+}
+
+.work-slide__open {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, .9);
+  border-radius: 50%;
+  place-items: center;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+
+.work-slide.is-active .work-slide__open {
+  opacity: 1;
+}
+
+.work-slide__open svg {
+  width: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+}
+
+.work-carousel__end {
+  flex: 0 0 0;
+  margin-left: -12px;
+}
+
+.work-carousel__bar {
+  padding-top: 16px;
+}
+
+.work-carousel__status {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.work-carousel__count {
+  margin: 0;
+  color: rgba(255, 255, 255, .5);
+  font-family: var(--display);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  white-space: nowrap;
+}
+
+.work-carousel__count strong {
+  color: var(--white);
+}
+
+.work-carousel__progress {
+  flex: 1;
+  height: 2px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .14);
+  border-radius: 2px;
+}
+
+.work-carousel__progress span {
+  display: block;
+  height: 100%;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.work-carousel .work-browser__controls button {
+  width: 44px;
+  height: 44px;
 }
 
 @media (max-width: 680px) {
-  .work-showcase__header {
-    padding-block: 22px 14px;
+  .work-carousel__track {
+    --work-slide-height: min(86vw, 52svh);
+    gap: 10px;
   }
 
-  .work-stage {
-    display: block;
-    height: auto;
-    min-height: 0;
-    border-radius: 24px;
+  .work-slide {
+    max-width: 86%;
+    border-radius: 18px;
   }
 
-  .work-feature {
-    width: 100%;
-    height: 360px;
-  }
-
-  .work-feature__open {
-    right: 16px;
-    bottom: 16px;
-  }
-
-  .work-filmstrip {
-    height: 92px;
-  }
-
-  .work-browser__toolbar > div:first-child {
-    display: grid;
-    gap: 1px;
+  .work-carousel__end {
+    margin-left: -10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .work-feature img,
   .work-thumb,
-  .work-thumb img {
+  .work-thumb img,
+  .work-slide img,
+  .work-carousel__progress span {
     transition: none;
   }
 }
