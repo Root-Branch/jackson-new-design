@@ -13,3 +13,19 @@
   font-display: swap;
   src: url("../assets/fonts/familjen-grotesk-latin.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/lato-bold-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-light-latin.woff2") format("woff2");
+}

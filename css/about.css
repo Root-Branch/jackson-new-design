@@ -31,6 +31,8 @@
 
 .about-profile__copy .lead {
   margin-bottom: 20px;
+  font-family: var(--body);
+  font-weight: 400;
   font-size: clamp(1.2rem, 1.7vw, 1.55rem);
 }
 
