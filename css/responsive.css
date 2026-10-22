@@ -151,11 +151,7 @@
     padding-inline: 16px;
   }
 
-  .brand__name {
-    font-size: 1.2rem;
-  }
-
-  .brand__sub {
+  .site-header .brand {
     font-size: .39rem;
   }
 

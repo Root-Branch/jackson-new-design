@@ -29,11 +29,8 @@
   padding-top: 34px;
 }
 
-.about-profile__copy .lead {
+.about-profile__copy > p {
   margin-bottom: 20px;
-  font-family: var(--body);
-  font-weight: 400;
-  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
 }
 
 .about-profile__copy > p:last-child {
