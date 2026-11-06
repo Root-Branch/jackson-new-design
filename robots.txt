@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jacksonph.co.uk/sitemap.xml

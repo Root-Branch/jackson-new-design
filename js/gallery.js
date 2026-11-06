@@ -62,19 +62,6 @@ if (workShowcase) {
     autoTimer = window.setInterval(() => showExample(activeIndex + 1, false), 5500);
   };
 
-  if (!isTouchLayout()) {
-    photos.forEach((photo) => {
-      const preload = document.createElement("link");
-      preload.rel = "preload";
-      preload.as = "image";
-      preload.href = photo.src;
-      preload.imageSrcset = photo.srcset;
-      preload.imageSizes = featureImage.sizes;
-      preload.fetchPriority = "low";
-      document.head.append(preload);
-    });
-  }
-
   thumbs.forEach((thumb, index) => {
     thumb.addEventListener("click", () => {
       showExample(index, false);
@@ -142,7 +129,7 @@ if (workShowcase) {
     slide.style.aspectRatio = photo.ratio;
     slide.setAttribute("aria-label", `Open photo ${index + 1} of ${total}: ${photo.alt}`);
     slide.innerHTML = `
-      <img src="${photo.src}" srcset="${photo.srcset}" sizes="(max-width: 680px) 86vw, 640px" alt="" loading="${index < 2 ? "eager" : "lazy"}" decoding="async">
+      <img src="${photo.src}" srcset="${photo.srcset}" sizes="(max-width: 680px) 86vw, 640px" alt="" loading="lazy" decoding="async">
       <span class="work-slide__open" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></span>`;
     slide.addEventListener("click", () => openLightbox(index));
     track.append(slide);

@@ -571,6 +571,10 @@
   box-shadow: var(--shadow);
 }
 
+.coverage__content {
+  min-width: 0;
+}
+
 .coverage__content h2 {
   margin-bottom: 24px;
   font-size: clamp(2rem, 3.5vw, 3rem);
@@ -583,6 +587,7 @@
 
 .contact-list {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   margin-block: 34px;
 }
@@ -622,6 +627,8 @@
 }
 
 .contact-list a > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
   color: rgba(255, 255, 255, .62);
   font-size: .75rem;
   line-height: 1.45;
